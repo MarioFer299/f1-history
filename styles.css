@@ -1,0 +1,97 @@
+/* MENÚ DESPLEGABLE */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-button {
+    background: none;
+    border: none;
+
+    color: var(--light-color);
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+.dropdown-button span {
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+
+/* CONTENIDO DEL DROPDOWN */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 210px;
+
+    padding: 10px 0;
+
+    background-color: var(--dark-secondary);
+
+    list-style: none;
+
+    border-top: 3px solid var(--primary-color);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 1000;
+}
+
+
+/* MOSTRAR DROPDOWN */
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* OPCIONES DEL DROPDOWN */
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: var(--light-color);
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--primary-color);
+
+    padding-left: 23px;
+}
