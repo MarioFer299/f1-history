@@ -362,6 +362,10 @@ ul { list-style: none; }
     background-color: var(--bg-card);
     padding: 1.2rem;
     border-radius: 10px;
+    transition: transform 0.3s;
+}
+.piloto-card:hover {
+    transform: translateY(-4px);
 }
 .piloto-numero {
     width: 60px;
@@ -382,6 +386,30 @@ ul { list-style: none; }
     background-color: var(--primary);
     border-radius: 12px;
     color: white;
+}
+
+/* === IMÁGENES DE ESCUDERÍAS Y PILOTOS === */
+.escuderia-imagen-container {
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.escuderia-imagen {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.piloto-imagen {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    flex-shrink: 0;
 }
 
 /* RESPONSIVE MÓVIL */
@@ -420,4 +448,11 @@ ul { list-style: none; }
     .dropdown.active .dropdown-menu { display: block; }
     .hero h1 { font-size: 2rem; }
     .escuderia-header { flex-direction: column; text-align: center; }
+    .escuderia-imagen {
+        height: 220px;
+    }
+    .piloto-imagen {
+        width: 60px;
+        height: 60px;
+    }
 }
