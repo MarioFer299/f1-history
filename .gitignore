@@ -1,16 +1,14 @@
-# Dependencias
-node_modules/
-
-# Next.js
-.next/
-
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Visual Studio Code
+# Editores
 .vscode/
+.idea/
+*.swp
+*.swo
 
-# Archivos temporales
-*.tmp
+# Logs
 *.log
+npm-debug.log*

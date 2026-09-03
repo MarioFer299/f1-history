@@ -1,20 +1,22 @@
-# F1 History
+# 🏎️ F1 History
 
-F1 History es un sitio web dedicado a la historia de la Fórmula 1,
-sus pilotos y sus escuderías.
+Sitio web dedicado a la historia de la Fórmula 1, enfocado en el catálogo de las 10 escuderías y sus pilotos de la temporada 2025. Permite explorar la información de cada equipo (historia, base, campeonatos y pilotos actuales) y suscribirse a un boletín.
 
-El proyecto busca presentar información sobre la evolución de la
-Fórmula 1 y permitir explorar diferentes equipos y pilotos.
+🔗 **Sitio en producción:** [PEGAR URL DE VERCEL]
 
-## Tecnologías
+## Decisiones Técnicas
 
-- HTML5
-- CSS3
-- JavaScript
+**1. ¿Dónde usaste Flexbox y dónde Grid, y por qué?**  
+Usé **Flexbox** en el `.navbar` porque necesitaba alinear el logo y los enlaces en una sola dimensión horizontal, con `justify-content: space-between` para separarlos. Usé **CSS Grid** en `.catalogo-grid` porque es ideal para cuadrículas bidimensionales. Con `grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))` logré que las tarjetas pasaran de 1 columna en móvil a 4 en pantallas grandes sin media queries complicadas.
 
-## Estado del proyecto
+**2. ¿Qué hace tu JavaScript?**  
+Tres funciones principales:
+- **Renderizado dinámico:** Lee un arreglo de objetos `escuderias` y crea las tarjetas con `document.createElement`. Esto me sirve de base para la Entrega 2, donde ese arreglo será reemplazado por un `fetch()` a mi API REST.
+- **Menú hamburguesa:** Un `addEventListener` de tipo 'click' que alterna la clase `.active` en el menú móvil.
+- **Validación de formulario:** Intercepta el `submit` con `preventDefault()`, valida longitud mínima y email con Regex, e inyecta los errores en `<span>` junto a cada campo (sin usar `alert`).
 
-Proyecto en desarrollo para la asignatura Desarrollo Web.
+**3. Uso de IA:**  
+Usé IA como tutor para entender cómo detectar automáticamente el nombre de la página actual con `window.location.pathname` y así reutilizar el mismo HTML para las 10 escuderías. Yo escribí manualmente la lógica de renderizado y adapté los colores de cada escudería usando variables CSS dinámicas (`--accent`).
 
-Esta es la primera etapa del proyecto, donde se construye la
-estructura inicial del sitio.
+**4. Lo más difícil:**  
+Hacer que el dropdown funcionara en escritorio (con hover) y en móvil (con click) sin romperse. Lo resolví separando la lógica: CSS `:hover` para escritorio y un `addEventListener` en JS que solo activa la clase `.active` si `window.innerWidth <= 768px`.

@@ -3,176 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="F1 History, un sitio dedicado a la historia de la Fórmula 1, sus pilotos y escuderías.">
-    <title>F1 History | Historia de la Fórmula 1</title>
-
+    <meta name="description" content="F1 History: Catálogo de escuderías y pilotos de la temporada 2025.">
+    <title>F1 History | Inicio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-   <header class="site-header">
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">F1 <span>HISTORY</span></a>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                
+                <li class="dropdown">
+                    <button class="dropdown-button">Pilotos <span>▼</span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/pilotos/mclaren.html">McLaren</a></li>
+                        <li><a href="pages/pilotos/mercedes.html">Mercedes</a></li>
+                        <li><a href="pages/pilotos/redbull.html">Red Bull</a></li>
+                        <li><a href="pages/pilotos/ferrari.html">Ferrari</a></li>
+                        <li><a href="pages/pilotos/williams.html">Williams</a></li>
+                        <li><a href="pages/pilotos/racing-bulls.html">Racing Bulls</a></li>
+                        <li><a href="pages/pilotos/aston-martin.html">Aston Martin</a></li>
+                        <li><a href="pages/pilotos/haas.html">Haas</a></li>
+                        <li><a href="pages/pilotos/sauber.html">Sauber</a></li>
+                        <li><a href="pages/pilotos/alpine.html">Alpine</a></li>
+                    </ul>
+                </li>
 
-    <nav class="navbar">
+                <li class="dropdown">
+                    <button class="dropdown-button">Escuderías <span>▼</span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/escuderias/mclaren.html">McLaren</a></li>
+                        <li><a href="pages/escuderias/mercedes.html">Mercedes</a></li>
+                        <li><a href="pages/escuderias/redbull.html">Red Bull</a></li>
+                        <li><a href="pages/escuderias/ferrari.html">Ferrari</a></li>
+                        <li><a href="pages/escuderias/williams.html">Williams</a></li>
+                        <li><a href="pages/escuderias/racing-bulls.html">Racing Bulls</a></li>
+                        <li><a href="pages/escuderias/aston-martin.html">Aston Martin</a></li>
+                        <li><a href="pages/escuderias/haas.html">Haas</a></li>
+                        <li><a href="pages/escuderias/sauber.html">Sauber</a></li>
+                        <li><a href="pages/escuderias/alpine.html">Alpine</a></li>
+                    </ul>
+                </li>
 
-        <a href="index.html" class="logo">
-            F1 HISTORY
-        </a>
+                <li class="dropdown">
+                    <button class="dropdown-button">Historia <span>▼</span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/historia/mclaren.html">McLaren</a></li>
+                        <li><a href="pages/historia/mercedes.html">Mercedes</a></li>
+                        <li><a href="pages/historia/redbull.html">Red Bull</a></li>
+                        <li><a href="pages/historia/ferrari.html">Ferrari</a></li>
+                        <li><a href="pages/historia/williams.html">Williams</a></li>
+                        <li><a href="pages/historia/racing-bulls.html">Racing Bulls</a></li>
+                        <li><a href="pages/historia/aston-martin.html">Aston Martin</a></li>
+                        <li><a href="pages/historia/haas.html">Haas</a></li>
+                        <li><a href="pages/historia/sauber.html">Sauber</a></li>
+                        <li><a href="pages/historia/alpine.html">Alpine</a></li>
+                    </ul>
+                </li>
 
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-            ☰
-        </button>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <ul class="nav-menu" id="nav-menu">
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Historia de la Fórmula 1</h1>
+                <p>Descubre las escuderías, pilotos y momentos que marcaron la categoría reina. Temporada 2025.</p>
+                <a href="#catalogo" class="btn-primary">Ver Escuderías</a>
+            </div>
+        </section>
 
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
+        <section id="catalogo" class="section-container">
+            <h2>Escuderías Temporada 2025</h2>
+            <p class="section-subtitle">Las 10 escuderías que compiten en la parrilla actual.</p>
+            
+            <div class="filtros">
+                <button class="filtro-btn active" data-filtro="todas">Todas</button>
+                <button class="filtro-btn" data-filtro="top">Top 5</button>
+            </div>
 
-            <!-- PILOTOS -->
+            <div id="catalogo-grid" class="catalogo-grid"></div>
+        </section>
 
-            <li class="dropdown">
+        <section id="contacto" class="section-container">
+            <h2>Únete a la Comunidad</h2>
+            <p class="section-subtitle">Recibe noticias y análisis de la F1 cada semana.</p>
 
-                <button class="dropdown-button">
-                    Pilotos
-                    <span>▼</span>
-                </button>
+            <form id="form-contacto" class="formulario" novalidate>
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required minlength="3">
+                    <span class="error-msg" id="error-nombre"></span>
+                </div>
 
-                <ul class="dropdown-menu">
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-msg" id="error-email"></span>
+                </div>
 
-                    <li>
-                        <a href="pages/pilotos/ferrari.html">
-                            Pilotos Ferrari
-                        </a>
-                    </li>
+                <div class="form-group">
+                    <label for="mensaje">¿Cuál es tu escudería favorita y por qué?</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required minlength="10"></textarea>
+                    <span class="error-msg" id="error-mensaje"></span>
+                </div>
 
-                    <li>
-                        <a href="pages/pilotos/redbull.html">
-                            Pilotos Red Bull
-                        </a>
-                    </li>
+                <button type="submit" class="btn-primary">Suscribirme</button>
+                <div id="success-msg" class="success-msg"></div>
+            </form>
+        </section>
+    </main>
 
-                    <li>
-                        <a href="pages/pilotos/mclaren.html">
-                            Pilotos McLaren
-                        </a>
-                    </li>
+    <footer class="site-footer">
+        <p>&copy; 2026 F1 History. Proyecto académico de Desarrollo Web.</p>
+    </footer>
 
-                    <li>
-                        <a href="pages/pilotos/mercedes.html">
-                            Pilotos Mercedes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/pilotos/aston-martin.html">
-                            Pilotos Aston Martin
-                        </a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-            <!-- ESCUDERÍAS -->
-
-            <li class="dropdown">
-
-                <button class="dropdown-button">
-                    Escuderías
-                    <span>▼</span>
-                </button>
-
-                <ul class="dropdown-menu">
-
-                    <li>
-                        <a href="pages/escuderias/ferrari.html">
-                            Ferrari
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/escuderias/redbull.html">
-                            Red Bull
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/escuderias/mclaren.html">
-                            McLaren
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/escuderias/mercedes.html">
-                            Mercedes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/escuderias/aston-martin.html">
-                            Aston Martin
-                        </a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-            <!-- HISTORIA -->
-
-            <li class="dropdown">
-
-                <button class="dropdown-button">
-                    Historia
-                    <span>▼</span>
-                </button>
-
-                <ul class="dropdown-menu">
-
-                    <li>
-                        <a href="pages/historia/ferrari.html">
-                            Historia de Ferrari
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/historia/redbull.html">
-                            Historia de Red Bull
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/historia/mclaren.html">
-                            Historia de McLaren
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/historia/mercedes.html">
-                            Historia de Mercedes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/historia/aston-martin.html">
-                            Historia de Aston Martin
-                        </a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-            <li>
-                <a href="#contacto">Contacto</a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
+    <script src="js/script.js"></script>
+</body>
+</html>
