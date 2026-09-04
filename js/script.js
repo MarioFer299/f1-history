@@ -44,7 +44,7 @@ const escuderias = [
         categoria: ["top"],
         pilotos: [
             { nombre: "Max Verstappen", numero: 1 },
-            { nombre: "Liam Lawson", numero: 30 }
+            { nombre: "Yuki Tsunoda", numero: 22 }
         ]
     },
     {
@@ -335,13 +335,16 @@ function renderizarCatalogo(filtro = 'todas') {
             `<span class="piloto-tag">#${p.numero} ${p.nombre}</span>`
         ).join('');
 
+        // CAMBIO APLICADO: Solo el logo grande arriba, nombre limpio sin logo pequeño al lado
         article.innerHTML = `
-            <img src="images/escuderias/${escuderia.id}.jpg" 
-                 alt="Logo de ${escuderia.nombre}" 
-                 class="card-img"
-                 onerror="this.style.backgroundColor='${escuderia.color}'; this.alt='${escuderia.emoji}'">
+            <div class="card-img-container">
+                <img src="images/logo/${escuderia.id}.jpg" 
+                     alt="Logo de ${escuderia.nombre}" 
+                     class="card-logo"
+                     onerror="this.style.display='none'">
+            </div>
             <div class="card-body">
-                <h3>${escuderia.emoji} ${escuderia.nombre}</h3>
+                <h3>${escuderia.nombre}</h3>
                 <div class="card-puntos">${escuderia.puntos2025} pts</div>
                 <a href="pages/escuderias/${escuderia.id}.html" class="card-link">Ver más →</a>
             </div>
@@ -371,7 +374,6 @@ if (menuToggle && navMenu) {
         menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
     });
 
-    // Desplegables en móvil
     document.querySelectorAll('.dropdown').forEach(dropdown => {
         const button = dropdown.querySelector('.dropdown-button');
         if (button) {
@@ -431,7 +433,7 @@ if (form) {
 }
 
 /* ============================================
-   RENDERIZADO PARA PÁGINAS DE ESCUDERÍAS (Solo info 2025)
+   RENDERIZADO PARA PÁGINAS DE ESCUDERÍAS
    ============================================ */
 const contenedorEscuderia = document.getElementById('info-escuderia');
 if (contenedorEscuderia) {
@@ -442,10 +444,11 @@ if (contenedorEscuderia) {
         document.documentElement.style.setProperty('--accent', escuderia.color);
 
         const h1 = document.querySelector('h1');
-        if (h1) h1.textContent = `${escuderia.emoji} ${escuderia.nombre}`;
+        if (h1) {
+            h1.innerHTML = `<img src="../../images/logo/${escuderia.id}.jpg" alt="Logo ${escuderia.nombre}" style="width: 40px; vertical-align: middle; margin-right: 10px;"> ${escuderia.nombre}`;
+        }
 
         const pilotosHTML = escuderia.pilotos.map(p => {
-            // CORRECCIÓN: Normalizar caracteres especiales (ej: Hülkenberg -> hulkenberg)
             let apellido = p.nombre.toLowerCase().split(' ').pop();
             apellido = apellido.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             
@@ -455,9 +458,8 @@ if (contenedorEscuderia) {
                          alt="Foto de ${p.nombre}" 
                          class="piloto-imagen"
                          onerror="this.style.display='none'">
-                    <div class="piloto-numero" style="background-color: ${escuderia.color}">${p.numero}</div>
                     <div class="piloto-info">
-                        <h3>${p.nombre}</h3>
+                        <h3>${p.nombre} <span style="color: ${escuderia.color}; font-weight: bold;">#${p.numero}</span></h3>
                         <a href="../pilotos/${apellido}.html" class="piloto-link">Ver perfil →</a>
                     </div>
                 </article>
@@ -467,7 +469,10 @@ if (contenedorEscuderia) {
         contenedorEscuderia.innerHTML = `
             <section class="escuderia-header">
                 <div class="escuderia-titulo">
-                    <span class="escuderia-emoji">${escuderia.emoji}</span>
+                    <img src="../../images/logo/${escuderia.id}.jpg" 
+                         alt="Logo ${escuderia.nombre}" 
+                         class="escuderia-logo"
+                         onerror="this.style.display='none'">
                     <h2>${escuderia.nombre}</h2>
                 </div>
                 <div class="escuderia-puntos">
@@ -502,7 +507,6 @@ if (contenedorEscuderia) {
    ============================================ */
 const contenedorPiloto = document.getElementById('info-piloto');
 if (contenedorPiloto) {
-    // CORRECCIÓN: Normalizar caracteres especiales para que coincida con las claves de pilotosData
     let paginaActual = window.location.pathname.split('/').pop().replace('.html', '');
     paginaActual = paginaActual.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     

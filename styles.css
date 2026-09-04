@@ -69,6 +69,47 @@ ul { list-style: none; }
 }
 .nav-menu > li > a:hover { color: var(--primary); }
 
+/* Tamaño del logo en página de historia */
+.historia-header .escuderia-imagen {
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto 2rem;
+    display: block;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+/* === LOGOS DE ESCUDERÍAS (CORREGIDO Y AUMENTADO) === */
+
+/* Logo en el título H1 */
+.section-container h1 img {
+    vertical-align: middle;
+    margin-right: 10px;
+    max-height: 45px;
+    width: auto;
+}
+
+/* Logo en el header de la escudería (AUMENTADO a 100px) */
+.escuderia-titulo img.escuderia-logo {
+    width: 100px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 15px;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* Logo pequeño en la tarjeta del piloto */
+.piloto-card img.piloto-escuderia-logo {
+    width: 35px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
 /* MENÚ HAMBURGUESA */
 .menu-toggle {
     display: none;
@@ -412,6 +453,16 @@ ul { list-style: none; }
     flex-shrink: 0;
 }
 
+/* === LOGOS MÁS GRANDES === */
+.escuderia-titulo img.escuderia-logo {
+    width: 80px;
+    height: auto;
+    margin-right: 15px;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+
 /* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
     .menu-toggle { display: block; }
@@ -448,11 +499,12 @@ ul { list-style: none; }
     .dropdown.active .dropdown-menu { display: block; }
     .hero h1 { font-size: 2rem; }
     .escuderia-header { flex-direction: column; text-align: center; }
-    .escuderia-imagen {
-        height: 220px;
-    }
-    .piloto-imagen {
+    .escuderia-imagen { height: 220px; }
+    .piloto-imagen { width: 60px; height: 60px; }
+    
+    /* Logo más pequeño en móvil */
+    .escuderia-titulo img.escuderia-logo {
         width: 60px;
-        height: 60px;
+        margin: 0 auto 10px;
     }
 }
