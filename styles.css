@@ -81,7 +81,7 @@ ul { list-style: none; }
     box-shadow: var(--shadow);
 }
 
-/* === LOGOS DE ESCUDERÍAS (CORREGIDO Y AUMENTADO) === */
+/* === LOGOS DE ESCUDERÍAS === */
 
 /* Logo en el título H1 */
 .section-container h1 img {
@@ -91,7 +91,7 @@ ul { list-style: none; }
     width: auto;
 }
 
-/* Logo en el header de la escudería (AUMENTADO a 100px) */
+/* Logo en el header de la escudería */
 .escuderia-titulo img.escuderia-logo {
     width: 100px;
     height: auto;
@@ -118,10 +118,6 @@ ul { list-style: none; }
     color: var(--text-light);
     font-size: 1.8rem;
     cursor: pointer;
-    .dropdown-menu {
-    max-height: 400px;
-    overflow-y: auto;
-}
 }
 
 /* DROPDOWN */
@@ -137,12 +133,15 @@ ul { list-style: none; }
 }
 .dropdown-button span { font-size: 0.7rem; margin-left: 4px; }
 
+/* === MENÚ DESPLEGABLE CON SCROLL === */
 .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
     background-color: var(--bg-card);
     min-width: 200px;
+    max-height: 400px;
+    overflow-y: auto;
     box-shadow: var(--shadow);
     opacity: 0;
     visibility: hidden;
@@ -150,6 +149,27 @@ ul { list-style: none; }
     transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
     z-index: 200;
     border-top: 3px solid var(--primary);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-dark);
+}
+
+/* Scrollbar personalizado para Chrome, Edge, Safari */
+.dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #ff1a1a;
 }
 
 .dropdown:hover .dropdown-menu,
@@ -499,6 +519,8 @@ ul { list-style: none; }
         border-top: none;
         padding-left: 1rem;
         display: none;
+        max-height: none;
+        overflow-y: visible;
     }
     .dropdown.active .dropdown-menu { display: block; }
     .hero h1 { font-size: 2rem; }

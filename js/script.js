@@ -123,7 +123,7 @@ const escuderias = [
         ]
     },
     {
-        id: "stake",
+        id: "stake-kick-sauber",  
         nombre: "Stake F1 Team Kick Sauber",
         emoji: "🟢",
         puntos2025: 70,
@@ -132,6 +132,7 @@ const escuderias = [
         campeonatos: 0,
         color: "#52E252",
         categoria: ["historicas"],
+        imagenLogo: "sauber", // ← ESTA LÍNEA HACE QUE CARGUE sauber.jpg
         pilotos: [
             { nombre: "Nico Hülkenberg", numero: 27 },
             { nombre: "Gabriel Bortoleto", numero: 5 }
@@ -337,7 +338,7 @@ function renderizarCatalogo(filtro = 'todas') {
 
         article.innerHTML = `
             <div class="card-img-container">
-                <img src="images/logo/${escuderia.id}.jpg" 
+                <img src="images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" 
                      alt="Logo de ${escuderia.nombre}" 
                      class="card-logo"
                      onerror="this.style.display='none'">
@@ -444,7 +445,7 @@ if (contenedorEscuderia) {
 
         const h1 = document.querySelector('h1');
         if (h1) {
-            h1.innerHTML = `<img src="../../images/logo/${escuderia.id}.jpg" alt="Logo ${escuderia.nombre}" style="width: 40px; vertical-align: middle; margin-right: 10px;"> ${escuderia.nombre}`;
+            h1.innerHTML = `<img src="../../images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" alt="Logo ${escuderia.nombre}" style="width: 40px; vertical-align: middle; margin-right: 10px;"> ${escuderia.nombre}`;
         }
 
         const pilotosHTML = escuderia.pilotos.map(p => {
@@ -468,7 +469,7 @@ if (contenedorEscuderia) {
         contenedorEscuderia.innerHTML = `
             <section class="escuderia-header">
                 <div class="escuderia-titulo">
-                    <img src="../../images/logo/${escuderia.id}.jpg" 
+                    <img src="../../images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" 
                          alt="Logo ${escuderia.nombre}" 
                          class="escuderia-logo"
                          onerror="this.style.display='none'">
@@ -481,7 +482,7 @@ if (contenedorEscuderia) {
             </section>
 
             <article class="escuderia-imagen-container">
-                <img src="../../images/escuderias/${escuderia.id}.jpg" 
+                <img src="../../images/escuderias/${escuderia.imagenLogo || escuderia.id}.jpg" 
                      alt="Imagen de ${escuderia.nombre}" 
                      class="escuderia-imagen"
                      onerror="this.style.display='none'">
