@@ -123,7 +123,7 @@ const escuderias = [
         ]
     },
     {
-        id: "sauber",
+        id: "stake",
         nombre: "Stake F1 Team Kick Sauber",
         emoji: "🟢",
         puntos2025: 70,
@@ -335,7 +335,6 @@ function renderizarCatalogo(filtro = 'todas') {
             `<span class="piloto-tag">#${p.numero} ${p.nombre}</span>`
         ).join('');
 
-        // CAMBIO APLICADO: Solo el logo grande arriba, nombre limpio sin logo pequeño al lado
         article.innerHTML = `
             <div class="card-img-container">
                 <img src="images/logo/${escuderia.id}.jpg" 
@@ -596,6 +595,41 @@ if (contenedorPiloto) {
         `;
     }
 }
+
+/* ============================================
+   MEJORAS DE UX - CERRAR MENÚS AUTOMÁTICAMENTE
+   ============================================ */
+
+// 1. Cerrar menú al seleccionar un enlace (piloto, escudería, historia)
+document.querySelectorAll('.dropdown-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        const navMenu = document.getElementById('nav-menu');
+        if (navMenu) navMenu.classList.remove('active');
+        const menuToggle = document.getElementById('menu-toggle');
+        if (menuToggle) menuToggle.textContent = '☰';
+    });
+});
+
+// 2. Cerrar menú al hacer clic fuera de la barra de navegación
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.navbar')) {
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        const navMenu = document.getElementById('nav-menu');
+        if (navMenu) navMenu.classList.remove('active');
+        const menuToggle = document.getElementById('menu-toggle');
+        if (menuToggle) menuToggle.textContent = '☰';
+    }
+});
+
+// 3. Cerrar menú al hacer scroll (con un pequeño retraso para no ser molesto)
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+    }, 100);
+});
 
 /* ============================================
    INICIALIZACIÓN

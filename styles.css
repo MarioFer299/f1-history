@@ -118,6 +118,10 @@ ul { list-style: none; }
     color: var(--text-light);
     font-size: 1.8rem;
     cursor: pointer;
+    .dropdown-menu {
+    max-height: 400px;
+    overflow-y: auto;
+}
 }
 
 /* DROPDOWN */
