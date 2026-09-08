@@ -3,17 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piloto | F1 History</title>
+    <title>Perfil del Piloto | F1 History</title>
     <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
     <header class="site-header">
         <nav class="navbar">
             <a href="../../index.html" class="logo">F1 <span>HISTORY</span></a>
-            <button class="menu-toggle" id="menu-toggle"></button>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="../../index.html#catalogo">Escuderías</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-button">Pilotos <span>▼</span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="norris.html">Lando Norris</a></li>
+                        <li><a href="hamilton.html">Lewis Hamilton</a></li>
+                        <li><a href="verstappen.html">Max Verstappen</a></li>
+                        <li><a href="albon.html">Alex Albon</a></li>
+                        <li><a href="ocon.html">Esteban Ocon</a></li>
+                        <li><a href="gasly.html">Pierre Gasly</a></li>
+                        <li><a href="colapinto.html">Franco Colapinto</a></li>
+                        <li><a href="alonso.html">Fernando Alonso</a></li>
+                        <li><a href="sainz.html">Carlos Sainz</a></li>
+                        <li><a href="leclerc.html">Charles Leclerc</a></li>
+                        <li><a href="bortoleto.html">Gabriel Bortoleto</a></li>
+                        <li><a href="russell.html">George Russell</a></li>
+                        <li><a href="tsunoda.html">Yuki Tsunoda</a></li>
+                        <li><a href="bearman.html">Oliver Bearman</a></li>
+                        <li><a href="antonelli.html">Andrea Antonelli</a></li>
+                        <li><a href="piastri.html">Oscar Piastri</a></li>
+                        <li><a href="lawson.html">Liam Lawson</a></li>
+                        <li><a href="hadjar.html">Isack Hadjar</a></li>
+                        <li><a href="hulkenberg.html">Nico Hülkenberg</a></li>
+                        <li><a href="stroll.html">Lance Stroll</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <button class="dropdown-button">Escuderías <span>▼</span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="../escuderias/mclaren.html">McLaren</a></li>
+                        <li><a href="../escuderias/ferrari.html">Ferrari</a></li>
+                        <li><a href="../escuderias/alpine.html">Alpine</a></li>
+                        <li><a href="../escuderias/redbull.html">Red Bull</a></li>
+                        <li><a href="../escuderias/mercedes.html">Mercedes</a></li>
+                        <li><a href="../escuderias/williams.html">Williams</a></li>
+                        <li><a href="../escuderias/haas.html">Haas</a></li>
+                        <li><a href="../escuderias/skake-kick-sauber.html">Stake Kick Sauber</a></li>
+                        <li><a href="../escuderias/racing-bulls.html">Racing Bulls</a></li>
+                        <li><a href="../escuderias/aston-martin.html">Aston Martin</a></li>
+                    </ul>
+                </li>
                 <li><a href="../../index.html#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -21,15 +60,18 @@
 
     <main>
         <section class="section-container">
-            <h1>Piloto</h1>
-            <p class="section-subtitle">Perfil completo del piloto.</p>
+            <!-- El título se llenará automáticamente con el nombre del piloto -->
+            <h1>Perfil del Piloto</h1>
+            <p class="section-subtitle">Biografía, estadísticas y trayectoria completa.</p>
+            
+            <!-- Este div es el que tu JavaScript llenará con toda la información -->
             <div id="info-piloto" class="info-piloto"></div>
         </section>
     </main>
 
     <footer class="site-footer">
         <p>&copy; 2026 F1 History. Proyecto académico de Desarrollo Web.</p>
-    </footer>
+    </footer>   
 
     <script src="../../js/script.js"></script>
 </body>

@@ -240,6 +240,9 @@ ul { list-style: none; }
     text-align: center;
     color: var(--text-gray);
     margin-bottom: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.4rem;
+    font-style: italic;
 }
 
 /* FILTROS */
@@ -487,6 +490,143 @@ ul { list-style: none; }
     border-radius: 8px;
 }
 
+/* ============================================
+   PERFIL DE PILOTO (LAYOUT LADO A LADO)
+   ============================================ */
+.piloto-perfil {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 6px solid var(--accent);
+}
+
+.piloto-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.piloto-foto-principal {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--accent);
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.piloto-numero-grande {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0.5rem 0;
+}
+
+.piloto-escuderia {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    font-weight: 600;
+}
+
+.piloto-biografia h3, 
+.piloto-estadisticas h3, 
+.piloto-historial h3, 
+.piloto-logros h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--bg-dark);
+    padding-bottom: 0.5rem;
+}
+
+.piloto-datos-personales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.piloto-datos-personales .dato {
+    background-color: var(--bg-dark);
+    padding: 1rem;
+    border-radius: 8px;
+    border-top: 3px solid var(--accent);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-box {
+    background-color: var(--bg-dark);
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-box .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+}
+
+.historial-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.historial-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-dark);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+}
+
+.historial-anos {
+    font-weight: bold;
+    color: var(--text-light);
+    min-width: 120px;
+}
+
+.historial-escuderia {
+    flex-grow: 1;
+    text-align: center;
+    color: var(--text-gray);
+}
+
+.historial-carreras {
+    font-weight: 600;
+    color: var(--accent);
+}
+
 /* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
     .menu-toggle { display: block; }
@@ -533,4 +673,30 @@ ul { list-style: none; }
         width: 60px;
         margin: 0 auto 10px;
     }
+}
+
+/* === LAYOUT DE ESCRITORIO PARA PILOTOS (FOTO IZQ, INFO DER) === */
+@media (min-width: 900px) {
+    .piloto-perfil {
+        grid-template-columns: 300px 1fr;
+        grid-template-areas: 
+            "foto bio"
+            "foto info"
+            "foto stats"
+            "foto historial"
+            "foto logros";
+    }
+    
+    .piloto-header {
+        grid-area: foto;
+        position: sticky;
+        top: 100px;
+        align-self: start;
+    }
+    
+    .piloto-biografia { grid-area: bio; }
+    .piloto-datos-personales { grid-area: info; margin-top: 0; }
+    .piloto-estadisticas { grid-area: stats; margin-top: 2rem; }
+    .piloto-historial { grid-area: historial; margin-top: 2rem; }
+    .piloto-logros { grid-area: logros; margin-top: 2rem; }
 }

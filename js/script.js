@@ -310,9 +310,17 @@ const pilotosData = {
         estadisticas: { carreras: 12, victorias: 0, podios: 0, poles: 0, vueltasRapidas: 1, puntos: 27 },
         historialEscuderias: [{ escuderia: "Williams", años: "2024", carreras: 9 }, { escuderia: "Alpine", años: "2025-Presente", carreras: 3 }],
         logros: "Primer argentino en F1 desde 1997. Puntos en su debut."
+    },
+    tsunoda: {
+        nombre: "Yuki Tsunoda", numero: 22, escuderiaActual: "AlphaTauri", nacionalidad: "Japonés",
+        fechaNacimiento: "11 de julio de 2000", lugarNacimiento: "Saitama, Japón",
+        biografia: "Yuki Tsunoda es un piloto japonés que ha mostrado gran potencial en F1, destacando por su habilidad en circuitos cerrados.",
+        estadisticas: { carreras: 36, victorias: 0, podios: 0, poles: 0, vueltasRapidas: 0, puntos: 72 },
+        historialEscuderias: [{ escuderia: "Toro Rosso", años: "2021-2022", carreras: 18 }, { escuderia: "AlphaTauri", años: "2023-Presente", carreras: 18 }],
+        logros: "Primer piloto japonés en F1 desde 2021. Puntos en su debut."
     }
 };
-
+        
 /* ============================================
    GRUPO A: RENDERIZADO DINÁMICO DEL CATÁLOGO
    ============================================ */
@@ -599,7 +607,7 @@ if (contenedorPiloto) {
 
 /* ============================================
    MEJORAS DE UX - CERRAR MENÚS AUTOMÁTICAMENTE
-   ============================================ */
+   =======================  ===================== */
 
 // 1. Cerrar menú al seleccionar un enlace (piloto, escudería, historia)
 document.querySelectorAll('.dropdown-menu a').forEach(link => {
