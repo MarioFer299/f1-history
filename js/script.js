@@ -20,7 +20,7 @@ const escuderias = [
     {
         id: "mercedes",
         nombre: "Mercedes-AMG PETRONAS",
-        emoji: "🖤",
+        emoji: "",
         puntos2025: 469,
         fundacion: 2010,
         base: "Brackley, Reino Unido",
@@ -65,7 +65,7 @@ const escuderias = [
     {
         id: "williams",
         nombre: "Williams Racing",
-        emoji: "🩵",
+        emoji: "",
         puntos2025: 137,
         fundacion: 1977,
         base: "Grove, Reino Unido",
@@ -125,14 +125,14 @@ const escuderias = [
     {
         id: "stake-kick-sauber",  
         nombre: "Stake F1 Team Kick Sauber",
-        emoji: "🟢",
+        emoji: "",
         puntos2025: 70,
         fundacion: 1993,
         base: "Hinwil, Suiza",
         campeonatos: 0,
         color: "#52E252",
         categoria: ["historicas"],
-        imagenLogo: "sauber", // ← ESTA LÍNEA HACE QUE CARGUE sauber.jpg
+        imagenLogo: "sauber",
         pilotos: [
             { nombre: "Nico Hülkenberg", numero: 27 },
             { nombre: "Gabriel Bortoleto", numero: 5 }
@@ -346,7 +346,7 @@ function renderizarCatalogo(filtro = 'todas') {
 
         article.innerHTML = `
             <div class="card-img-container">
-                <img src="images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" 
+                <img src="/images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" 
                      alt="Logo de ${escuderia.nombre}" 
                      class="card-logo"
                      onerror="this.style.display='none'">
@@ -354,7 +354,7 @@ function renderizarCatalogo(filtro = 'todas') {
             <div class="card-body">
                 <h3>${escuderia.nombre}</h3>
                 <div class="card-puntos">${escuderia.puntos2025} pts</div>
-                <a href="pages/escuderias/${escuderia.id}.html" class="card-link">Ver más →</a>
+                <a href="/pages/escuderias/${escuderia.id}.html" class="card-link">Ver más →</a>
             </div>
         `;
         contenedorCatalogo.appendChild(article);
@@ -453,7 +453,7 @@ if (contenedorEscuderia) {
 
         const h1 = document.querySelector('h1');
         if (h1) {
-            h1.innerHTML = `<img src="../../images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" alt="Logo ${escuderia.nombre}" style="width: 40px; vertical-align: middle; margin-right: 10px;"> ${escuderia.nombre}`;
+            h1.innerHTML = `<img src="/images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" alt="Logo ${escuderia.nombre}" style="width: 40px; vertical-align: middle; margin-right: 10px;"> ${escuderia.nombre}`;
         }
 
         const pilotosHTML = escuderia.pilotos.map(p => {
@@ -462,13 +462,13 @@ if (contenedorEscuderia) {
             
             return `
                 <article class="piloto-card">
-                    <img src="../../images/pilotos/${apellido}.jpg" 
+                    <img src="/images/pilotos/${apellido}.jpg" 
                          alt="Foto de ${p.nombre}" 
                          class="piloto-imagen"
                          onerror="this.style.display='none'">
                     <div class="piloto-info">
                         <h3>${p.nombre} <span style="color: ${escuderia.color}; font-weight: bold;">#${p.numero}</span></h3>
-                        <a href="../pilotos/${apellido}.html" class="piloto-link">Ver perfil →</a>
+                        <a href="/pages/pilotos/${apellido}.html" class="piloto-link">Ver perfil →</a>
                     </div>
                 </article>
             `;
@@ -477,7 +477,7 @@ if (contenedorEscuderia) {
         contenedorEscuderia.innerHTML = `
             <section class="escuderia-header">
                 <div class="escuderia-titulo">
-                    <img src="../../images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" 
+                    <img src="/images/logo/${escuderia.imagenLogo || escuderia.id}.jpg" 
                          alt="Logo ${escuderia.nombre}" 
                          class="escuderia-logo"
                          onerror="this.style.display='none'">
@@ -490,7 +490,7 @@ if (contenedorEscuderia) {
             </section>
 
             <article class="escuderia-imagen-container">
-                <img src="../../images/escuderias/${escuderia.imagenLogo || escuderia.id}.jpg" 
+                <img src="/images/escuderias/${escuderia.imagenLogo || escuderia.id}.jpg" 
                      alt="Imagen de ${escuderia.nombre}" 
                      class="escuderia-imagen"
                      onerror="this.style.display='none'">
@@ -535,7 +535,7 @@ if (contenedorPiloto) {
         contenedorPiloto.innerHTML = `
             <article class="piloto-perfil">
                 <div class="piloto-header">
-                    <img src="../../images/pilotos/${paginaActual}.jpg" 
+                    <img src="/images/pilotos/${paginaActual}.jpg" 
                          alt="Foto de ${piloto.nombre}" 
                          class="piloto-foto-principal"
                          onerror="this.style.display='none'">
@@ -607,7 +607,7 @@ if (contenedorPiloto) {
 
 /* ============================================
    MEJORAS DE UX - CERRAR MENÚS AUTOMÁTICAMENTE
-   =======================  ===================== */
+   ============================================ */
 
 // 1. Cerrar menú al seleccionar un enlace (piloto, escudería, historia)
 document.querySelectorAll('.dropdown-menu a').forEach(link => {
@@ -645,4 +645,39 @@ window.addEventListener('scroll', () => {
    ============================================ */
 document.addEventListener('DOMContentLoaded', () => {
     renderizarCatalogo();
+    /* ============================================
+   CAMBIO DE TEMA (CLARO/OSCURO)
+   ============================================ */
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle?.querySelector('.icon');
+const themeText = themeToggle?.querySelector('.text');
+
+// Función para aplicar el tema
+function aplicarTema(tema) {
+    if (tema === 'light') {
+        document.documentElement.classList.add('light-theme');
+        if (themeIcon) themeIcon.textContent = '☀️';
+        if (themeText) themeText.textContent = 'Claro';
+        localStorage.setItem('tema', 'light');
+    } else {
+        document.documentElement.classList.remove('light-theme');
+        if (themeIcon) themeIcon.textContent = '🌙';
+        if (themeText) themeText.textContent = 'Oscuro';
+        localStorage.setItem('tema', 'dark');
+    }
+}
+
+// Cargar tema guardado al iniciar
+const temaGuardado = localStorage.getItem('tema');
+if (temaGuardado) {
+    aplicarTema(temaGuardado);
+}
+
+// Evento click para cambiar tema
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const esTemaClaro = document.documentElement.classList.contains('light-theme');
+        aplicarTema(esTemaClaro ? 'dark' : 'light');
+    });
+}
 });
