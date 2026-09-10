@@ -2,7 +2,7 @@
 
 Sitio web dedicado a la historia de la Fórmula 1, enfocado en el catálogo de las 10 escuderías y sus pilotos de la temporada 2025. Permite explorar la información de cada equipo (historia, base, campeonatos y pilotos actuales) y suscribirse a un boletín.
 
-🔗 **Sitio en producción:** [PEGAR URL DE VERCEL]
+🔗 **Sitio en producción:** [(https://f1-history-theta.vercel.app/)]
 
 ## Decisiones Técnicas
 
