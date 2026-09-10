@@ -216,13 +216,14 @@ ul { list-style: none; }
 /* HERO CON IMAGEN DE FONDO */
 .hero {
     position: relative;
+    background-color: #15151e; /* Color de respaldo */
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-        url('images/logo/f1.jpg');
+        url('/images/logo/f1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll; /* ✅ Cambiado de fixed a scroll */
     color: white;
     padding: 6rem 2rem;
     text-align: center;
@@ -230,6 +231,13 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* ✅ Hero en escritorio con efecto parallax */
+@media (min-width: 769px) {
+    .hero {
+        background-attachment: fixed;
+    }
 }
 
 .hero-content {
