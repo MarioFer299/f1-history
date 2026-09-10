@@ -2,7 +2,7 @@
 
 Sitio web dedicado a la historia de la Fórmula 1, enfocado en el catálogo de las 10 escuderías y sus pilotos de la temporada 2025. Permite explorar la información de cada equipo (historia, base, campeonatos y pilotos actuales) y suscribirse a un boletín.
 
-🔗 **Sitio en producción:** [PEGAR URL DE VERCEL]
+🔗 **Sitio en producción:** [https://f1-history-theta.vercel.app/]
 
 ## Decisiones Técnicas
 
@@ -20,3 +20,57 @@ Usé IA como tutor para entender cómo detectar automáticamente el nombre de la
 
 **4. Lo más difícil:**  
 Hacer que el dropdown funcionara en escritorio (con hover) y en móvil (con click) sin romperse. Lo resolví separando la lógica: CSS `:hover` para escritorio y un `addEventListener` en JS que solo activa la clase `.active` si `window.innerWidth <= 768px`.
+
+## ✨ Características
+
+- 📊 Catálogo completo de las 10 escuderías de la temporada 2025
+- 👨‍️ Perfiles detallados de 20 pilotos con estadísticas completas
+- 🌓 Modo claro/oscuro con persistencia en localStorage
+- 📱 Diseño 100% responsive (móvil, tablet, desktop)
+- 🔍 Filtros dinámicos para explorar escuderías (Todas / Top 5)
+- 📧 Formulario de contacto con validación en tiempo real
+- 🎨 Interfaz moderna con animaciones y transiciones suaves
+- ⚡ Carga rápida sin frameworks pesados
+- 🖼️ Imagen de fondo dinámica en la sección hero
+
+## 🛠️ Tecnologías Utilizadas
+
+- **HTML5** - Estructura semántica y accesible
+- **CSS3** - Variables CSS, Flexbox, Grid, animaciones y temas
+- **JavaScript (ES6+)** - Renderizado dinámico, validación y manejo del DOM
+- **Git & GitHub** - Control de versiones
+- **Vercel** - Hosting y despliegue continuo
+
+## 🚀 Instalación y Uso Local
+
+### Opción 1: Abrir directamente
+```bash
+git clone https://github.com/MarioFer299/f1-history.git
+cd f1-history
+
+## 📁 Estructura del Proyecto
+
+f1-history/
+├── 📄 index.html # Página principal
+├── 📄 styles.css # Hoja de estilos global
+├── 📄 vercel.json # Configuración de Vercel
+├── 📁 js/
+│ └── 📄 script.js # Lógica JavaScript principal
+├── 📁 pages/
+│ ├── 📁 pilotos/ # Perfiles de pilotos
+│ │ ├── norris.html
+│ │ ├── 📄 verstappen.html
+│ │ ├── 📄 leclerc.html
+│ │ └── 📄 ... (20 pilotos)
+│ ├── 📁 escuderias/ # Páginas de escuderías
+│ │ ├── 📄 mclaren.html
+│ │ ├── 📄 redbull.html
+│ │ └── ... (10 escuderías)
+│ └── 📁 historia/ # Historia de cada equipo
+│ ├── 📄 mclaren.html
+│ └── ... (10 equipos)
+── 📁 images/
+├── f1.jpg # Imagen de fondo hero
+├── 📁 logo/ # Logos de escuderías
+├── pilotos/ # Fotos de pilotos
+── 📁 escuderias/ # Imágenes de equipos
