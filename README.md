@@ -2,7 +2,7 @@
 
 Sitio web dedicado a la historia de la Fórmula 1, enfocado en el catálogo de las 10 escuderías y sus pilotos de la temporada 2025. Permite explorar la información de cada equipo (historia, base, campeonatos y pilotos actuales) y suscribirse a un boletín.
 
-🔗 **Sitio en producción:** [https://f1-history-theta.vercel.app/]
+🔗 **Sitio en producción:** [PEGAR URL DE VERCEL]
 
 ## Decisiones Técnicas
 
@@ -44,11 +44,12 @@ Hacer que el dropdown funcionara en escritorio (con hover) y en móvil (con clic
 ## 🚀 Instalación y Uso Local
 
 ### Opción 1: Abrir directamente
-```bash
-git clone https://github.com/MarioFer299/f1-history.git
-cd f1-history
+
+- **git clone https://github.com/MarioFer299/f1-history.git
+- **cd f1-history
 
 ## 📁 Estructura del Proyecto
+```bash
 
 f1-history/
 ├── 📄 index.html # Página principal
