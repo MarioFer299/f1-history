@@ -44,9 +44,9 @@ Hacer que el dropdown funcionara en escritorio (con hover) y en móvil (con clic
 ## 🚀 Instalación y Uso Local
 
 ### Opción 1: Abrir directamente
-```bash
 git clone https://github.com/MarioFer299/f1-history.git
 cd f1-history
+
 
 ## 📁 Estructura del Proyecto
 
